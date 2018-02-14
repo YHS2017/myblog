@@ -7,7 +7,7 @@ title: 筱申博客
 subtitle: 筱申个人博客
 description: 筱申博客是一个个人学习笔记共享站,作者是一个前端工程师,所以主要内容主要是reactjs,vuejs,css3,html5等前端知识,但也包括linux,白鹭引擎,cocoscreator等个人感兴趣的内容。
 author: 筱申
-language: zh-Hans
+language: zh-CN
 timezone: UTC
 
 # URL
@@ -72,7 +72,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: miho
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
