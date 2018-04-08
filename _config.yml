@@ -12,7 +12,7 @@ timezone: UTC
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://yhsonline.info
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -55,8 +55,17 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
+  C#:DotNet
+  JS:javascript
+  CSS:css
+  HTML:html
+  Linux:linux
+  Other:other
 tag_map:
-
+  前端:web
+  后端:source
+  服务器:server
+  其他:other
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
@@ -78,5 +87,5 @@ theme: miho
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/YHS2017/yhs2017.github.io.git
+  repo: git@github.com:YHS2017/yhs2017.github.io.git
   branch: master
