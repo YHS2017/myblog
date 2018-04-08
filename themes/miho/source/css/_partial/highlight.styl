@@ -14,12 +14,13 @@ highlight-purple = #a95aa9
 
 $code-block
   background: highlight-background
-  margin: 8px article-padding * -1
+  margin: 8px 0
   padding: 15px article-padding
   border-style: solid
   border-color: color-border
-  border-width: 1px 0
+  border-width: 1px
   overflow: auto
+  border-radius: 5px
   color: highlight-foreground
   line-height: font-size * line-height
 
@@ -126,10 +127,13 @@ $line-numbers
 
 pre
   .comment
+    color:green
   .title
     color: highlight-comment
-  .variable
+  .selector-class
+    color: highlight-blue
   .attribute
+  .variable
   .tag
   .regexp
   .ruby .constant

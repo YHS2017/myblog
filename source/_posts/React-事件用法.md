@@ -5,7 +5,7 @@ tags: 前端
 category: JS
 cover_picture: https://files-1255997619.cos.ap-shanghai.myqcloud.com/cover.jpg
 ---
-在ReactJS中,在使用JSX对绑定事件的用法和在一般的HTML标签中，方式有所不同具体有哪些不同,而不同之处主要在于事件名称不同,一下将分类一一列出React中支持的所有事件方法,仅供大家参考~如有不足之处望大家指出！
+在ReactJS中,在使用JSX对绑定事件的用法和在一般的HTML标签中，方式有所不同具体有哪些不同,而不同之处主要在于事件名称不同,以下将分类一一列出React中支持的所有事件方法,仅供大家参考~如有不足之处望大家指出！
 
 ### JSX中对支持的事件名称
 
