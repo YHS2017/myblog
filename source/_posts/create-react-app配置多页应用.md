@@ -146,4 +146,4 @@ if (!checkRequiredFiles([paths.appHtml, paths.app1IndexJs, paths.app2IndexJs])) 
 ```
 
 到此生产环境的配置就修改完成了，用npm run build命令就可以在build文件夹看到生成的多个页面了~
-至于还有一些网上说的需要修改webpackDevServer.config.js中的historyApiFallback来达到可以访问不同页面的目的，貌似本人并没有遇到无法访问的问题~本人能力有限~附上GitHub的项目案例（）如有问题希望大家提出来一起讨论讨论~
+至于还有一些网上说的需要修改webpackDevServer.config.js中的historyApiFallback来达到可以访问不同页面的目的，貌似本人并没有遇到无法访问的问题~本人能力有限~附上GitHub的项目案例（`https://github.com/YHS2017/ReactMultiPage.git`）如有问题希望大家提出来一起讨论讨论~
