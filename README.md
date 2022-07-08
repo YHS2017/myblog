@@ -1,2 +1,0 @@
-# mybolg
-mybolg
