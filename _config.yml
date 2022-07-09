@@ -14,7 +14,7 @@ timezone: "Asia/Shanghai"
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: http://yhs2017.github.io
-permalink: :year/:month/:day/:title/
+permalink: :year/:month/:day/:hash/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -44,16 +44,17 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: true
+  enable: false
   auto_detect: false
   line_number: true
   line_threshold: 0
-  tab_replace: "  "
+  tab_replace: ""
   exclude_languages:
+    - example
   wrap: true
   hljs: false
 prismjs:
-  enable: false
+  enable: true
   preprocess: true
   line_number: true
   tab_replace: ""
@@ -104,6 +105,6 @@ theme: matery
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: "git"
+  type: git
   repo: "https://github.com/YHS2017/yhs2017.github.io.git"
   branch: "master"

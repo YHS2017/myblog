@@ -1,15 +1,21 @@
 ---
 title: create-react-app配置多页应用
 date: 2018-06-09 17:32:33
-tags: 前端
-category: JS
+tags: React
+category: JavaScript
 ---
+## 前言
 最近有个项目使用react框架搭建的网站和管理后台，本人想要将其做成两个单独的页面单个项目，于是就研究了一下多页面的配置，其实主要是webpack的配置修改，为了更清楚，我就直接从新建项目开始。
 
->1.使用create-react-app 创建一个单页应用，并且创建成功之后运行 npm run eject 暴露配置
->2.修改paths中的所需文件的路径  
+### 新建应用
+使用create-react-app 创建一个单页应用，并且创建成功之后运行 npm run eject 暴露配置
 
-``` js
+### 开发环境配置
+
+#### paths.js
+修改paths.js中的所需文件的路径，配置如下：  
+
+```js
 module.exports = {
   dotenv: resolveApp('.env'),
   appBuild: resolveApp('build'),
@@ -29,10 +35,11 @@ module.exports = {
 };
 ```
 
->3.在config中修改webpack.config.dev.js文件  
+#### webpack.config.dev.js
+修改config下的webpack.config.dev.js文件
 
-+ 修改entry
-``` js
+##### entry
+```js
 //修改入口文件你需要几个页面就写几个，
 entry: {
   App1: [
@@ -47,13 +54,13 @@ entry: {
   ],
 }
 ```
-+ 修改output
-``` js
+##### output
+```js
 //需要修改出口文件的名称，不然会有现文件明冲突，网上看别人没有改这个，但是本人遇到了问题所以就改了，可能人品不行吧~
 filename: 'static/js/[name].bundle.js',
 ```
-+ 修改plugins中的HtmlWebpackPlugin
-``` js
+##### HtmlWebpackPlugin
+```js
 //多少个页面就new 多少个 HtmlWebpackPlugin 并且在每一个里面的chunks都需要和上面的entry中的key匹配，例如上面entry中有App1和App2这两个。这里的chunks也需要是App1和App2
 new HtmlWebpackPlugin({
   inject: true,
@@ -68,7 +75,8 @@ new HtmlWebpackPlugin({
   filename: 'App2.html',//打包生成的文件名，注意不要有重复的！！！！
 }),
 ```
->4.修改scripts中的start.js文件  
+#### start.js
+修改scripts中的start.js文件  
 
 ```js
 //由于添加了新的货修改了入口文件的路径所以需要在此处修改相应的路径，不然文件检查会不通过
@@ -77,12 +85,15 @@ if (!checkRequiredFiles([paths.appHtml, paths.app1IndexJs, paths.app2IndexJs])) 
 }
 ```
 
-到此开发环境的配置就修改完成了，不出意外的话npm run start 就可以打开页面了，不同的路径可以通过连接进行访问，例如我的App1就访问http://localhost:3000/App1.html ，App2就访问http://localhost:3000/App2.html 。接下来是生产环境的配置修改。  
+>到此开发环境的配置就修改完成了，不出意外的话npm run start 就可以打开页面了，不同的路径可以通过连接进行访问，例如我的App1就访问http://localhost:3000/App1.html ，App2就访问http://localhost:3000/App2.html 。
 
->5.修改config下的webpack.config.prod.js文件  
+### 生产环境配置  
 
-+ 修改entry
-```js
+#### webpack.config.prod.js
+修改config下的webpack.config.prod.js文件  
+
+##### entry
+```javascript
 //与开发环境修改一样，入口文件你需要几个页面就写几个，
 entry: {
   App1: [
@@ -95,7 +106,7 @@ entry: {
   ],
 }
 ```
-+ 修改plugins中的HtmlWebpackPlugin
+##### HtmlWebpackPlugin
 ```js
 //多少个页面就new 多少个 HtmlWebpackPlugin 并且在每一个里面的chunks都需要和上面的entry中的key匹配，例如上面entry中有App1和App2这两个。这里的chunks也需要是App1和App2
 new HtmlWebpackPlugin({
@@ -135,7 +146,8 @@ new HtmlWebpackPlugin({
   },
 }),
 ```
->6.修改scripts中的build.js文件  
+### build.js
+修改scripts中的build.js文件
 
 ```js
 //同开发环境也需要在此处修改相应的路径，不然文件检查会不通过
@@ -144,5 +156,6 @@ if (!checkRequiredFiles([paths.appHtml, paths.app1IndexJs, paths.app2IndexJs])) 
 }
 ```
 
-到此生产环境的配置就修改完成了，用npm run build命令就可以在build文件夹看到生成的多个页面了~
-至于还有一些网上说的需要修改webpackDevServer.config.js中的historyApiFallback来达到可以访问不同页面的目的，貌似本人并没有遇到无法访问的问题~本人能力有限~附上GitHub的项目案例（https://github.com/YHS2017/ReactMultiPage.git ）如有问题希望大家提出来一起讨论讨论~
+>到此生产环境的配置就修改完成了，用npm run build命令就可以在build文件夹看到生成的多个页面了!
+>至于还有一些网上说的需要修改webpackDevServer.config.js中的historyApiFallback来达到可以访问不同页面的目的，貌似本人并没有遇到无法访问的问题,本人能力有限~
+>附上GitHub的项目案例 https://github.com/YHS2017/ReactMultiPage.git 如有问题希望大家提出来一起讨论讨论~
